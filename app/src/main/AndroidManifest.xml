@@ -24,14 +24,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.phamvanhung.tutorial.MainActivity" />
         </activity>
-        <activity
-            android:name=".DispalyMessageActivity"
-            android:label="@string/title_activity_dispaly_message"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.phamvanhung.tutorial.MainActivity" />
-        </activity>
     </application>
 
 </manifest>

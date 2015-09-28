@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -30,7 +32,10 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_actions, menu);
+     //   getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return true;
     }
 
@@ -41,12 +46,27 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            openSettings();
             return true;
         }
 
+        if (id == R.id.action_search){
+            openSearch();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void openSearch() {
+        Toast.makeText(this, "Search button pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    private void openSettings() {
+        Toast.makeText(this, "Settings button pressed", Toast.LENGTH_SHORT).show();
     }
 
 

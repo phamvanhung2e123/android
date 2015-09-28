@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class DisplayMessageActivity extends ActionBarActivity {
@@ -13,7 +14,8 @@ public class DisplayMessageActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.activity_display_message);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         String  message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
@@ -33,9 +35,21 @@ public class DisplayMessageActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            openSettings();
             return true;
         }
-
+        if (id == R.id.action_search){
+           openSearch();
+           return true;
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openSearch() {
+        Toast.makeText(this, "Search button pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    private void openSettings() {
+        Toast.makeText(this, "Settings button pressed", Toast.LENGTH_SHORT).show();
     }
 }
